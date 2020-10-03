@@ -6,6 +6,7 @@
  image filtering, geometrical image transformations, color space conversion and so on.
 #include <iostream>
 #include <stdio.h>
+#include<algorithm>
 // The header files for performing input and output.
  
 using namespace cv;
