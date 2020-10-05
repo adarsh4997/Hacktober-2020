@@ -1,0 +1,87 @@
+package hacktoberfest;
+import java.util.Scanner;
+/**
+ *
+ * @author hp
+ */
+class hotel_rooms
+{int total_charges=0;
+int days;
+    Scanner obj=new Scanner(System.in);
+    
+    
+    public void details()
+            
+    {
+        System.out.println("enter the no. of days you want to stay in the hotel");
+        days=obj.nextInt();
+        System.out.println("enter your name");
+        String name=obj.next();
+        System.out.println("enter your permanenet address");
+        String address=obj.next();
+    }
+}
+class need extends hotel_rooms
+{
+      public void basic_needs ()
+    { System.out.println("rent for room=1500");
+       total_charges=total_charges+1500;
+       System.out.println("food cost=300/perday for 3 meals");
+       total_charges=total_charges+(300*days);
+       System.out.println("other charges for laundry & maintainence=50");
+       total_charges=total_charges+(50*days);
+      System.out.println("Total rent for "+days+"days="+total_charges);
+    }
+
+    
+      @SuppressWarnings("SillyAssignment")
+    public void add_ons()
+    {
+                   System.out.println("if you want addons enter type yes otherwise enter no");
+                   String answer=obj.next();
+                   String s0="yes";
+                   if(answer.equals(s0))
+                   {
+                   System.out.println("Addons include snacks & drinks cost for addons is 150/per day");
+                   
+                   total_charges=total_charges+(150*days);
+                   }
+                   else
+                   {
+                       total_charges=total_charges;
+                   }
+    }
+
+}
+
+class room extends need
+{
+    public void ac_non_ac()
+    {
+        System.out.println("which room you want AC or Non AC enter details charges for ac room is 500 + total charges");
+        
+        String answer=obj.next();
+        String s1="ac";
+        if(answer.equals(s1))
+        {
+            total_charges=total_charges+500;
+            System.out.println("Your total charges ="+total_charges);
+        }
+        else
+        {
+             System.out.println("Your total charges ="+total_charges);
+        }
+    }
+}
+public class inheritanceassignent {
+    public static void main(String args[])
+    {
+        
+       
+        room obj1=new room();
+        obj1.details();
+        obj1.basic_needs();
+        obj1.add_ons();
+        obj1.ac_non_ac();
+    }
+ }
